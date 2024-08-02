@@ -250,7 +250,7 @@ static void OurFree(void *addr) {
         // Q7. ___________________
         pre->next = freedNode;
         // Q8. ___________________
-        freedNote->next = cur;
+        freedNode->next = cur;
         // Q9. ___________________
         mergeIfAdjacent(freedNode, cur);
         // Q10. __________________ 
