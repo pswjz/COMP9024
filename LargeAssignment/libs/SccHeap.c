@@ -111,7 +111,9 @@ static void *OurMalloc(heap_size_t size) {
         // Q1. ___________________
         // Q2. ___________________
         // Q3. ___________________
-
+        cur->size = cur->size - alignedSize - sizeof(heap_size_t);
+        ptr = (heap_size_t *)((char *)cur + cur->size + sizeof(heap_size_t));
+        *ptr = alignedSize;
         //memset(ptr + 1, 0, alignedSize);
         return (ptr + 1);
       } 
