@@ -223,8 +223,11 @@ static void OurFree(void *addr) {
         ////////////////////////////////////////////////////////////////////////////////////
 
         // Q4. ___________________
+        first = freedNode;
         // Q5. ___________________
+        freedNode->next = cur;
         // Q6. ___________________
+        mergeIfAdjacent(freedNode, cur);
       } 
       else {
         /*
@@ -245,9 +248,13 @@ static void OurFree(void *addr) {
         ////////////////////////////////////////////////////////////////////////////////////
 
         // Q7. ___________________
+        pre->next = freedNode;
         // Q8. ___________________
+        freedNote->next = cur;
         // Q9. ___________________
+        mergeIfAdjacent(freedNode, cur);
         // Q10. __________________ 
+        mergeIfAdjacent(pre, freedNode);
       }
       return;
     }
